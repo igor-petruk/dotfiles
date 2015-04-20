@@ -90,6 +90,7 @@ autocmd FileType cpp nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclarat
 
 let g:jedi#use_tabs_not_buffers = 0
 let g:jedi#show_call_signatures = "0"
+let g:jedi#popup_select_first = 0
 autocmd FileType python setlocal completeopt-=preview
 
 
