@@ -15,12 +15,15 @@ Plugin 'jdevera/vim-protobuf-syntax'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'localvimrc'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'stephanedemotte/beekai'
 Plugin 'sickill/vim-monokai'
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'bling/vim-airline'
 Plugin 'fatih/vim-go'
+Plugin 'mhinz/vim-signify'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'airblade/vim-gitgutter'
@@ -42,14 +45,15 @@ endif
 filetype plugin indent on    " required
 
 filetype plugin on
+syntax on
 
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
 let g:airline_powerline_fonts=1
 let g:airline_theme='tomorrow'
 
 
-autocmd VimEnter * nested :call tagbar#autoopen(1)
-autocmd FileType * nested :call tagbar#autoopen(0)
+" autocmd VimEnter * nested :call tagbar#autoopen(1)
+" autocmd FileType * nested :call tagbar#autoopen(0)
 
 set mouse=a
 
@@ -62,9 +66,8 @@ set smartindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set textwidth=120
-set relativenumber
-"set number
+" set relativenumber
+set number
 set showmatch
 set hlsearch
 set nobackup
@@ -74,7 +77,8 @@ set completeopt=menu,longest
 set nospell
 set laststatus=2
 set t_Co=256
-colorscheme monokai
+colorscheme beekai
+highlight ColorColumn ctermbg=7
 
 let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_echo_current_diagnostic = 0
@@ -99,9 +103,10 @@ map <S-F7> :make clean all<CR>
 map <F8> :make! run<CR>
 map <F10> :sh<CR>
 map <C-n> :NERDTreeToggle<CR>
+map <C-t> :TagbarToggle<CR>
 nnoremap <buffer> <CR> <C-]>
-noremap [D :tabprev<CR>
-noremap [C :tabnext<CR>
+nmap [D <C-W>h
+nmap [C <C-W>l
 
 let g:localvimrc_sandbox=0
 let g:localvimrc_persistent=2
